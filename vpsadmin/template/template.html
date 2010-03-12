@@ -1,0 +1,200 @@
+<!-- BEGIN: main -->
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+   
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="cs" />
+
+    <link rel="stylesheet" media="screen,projection" type="text/css" href="template/css/main.css" />
+    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="template/css/main-msie.css" /><![endif]-->
+    <link rel="stylesheet" media="screen,projection" type="text/css" href="template/css/scheme.css" />
+    <link rel="stylesheet" media="print" type="text/css" href="template/css/print.css" />
+    <link rel="icon" type="image/png" href="template/favicon.png" />
+
+    <title>vpsAdmin</title>
+    {SCRIPT}
+    <script type="text/javascript" src="js/mootools.js"></script>
+    {AJAX_SCRIPT}
+</head>
+
+<body {SCRIPT_BODY}>
+
+<div id="header">
+    <div class="main">
+
+        <h3 id="logo"><img src="template/vpsAdmin-logo.png" alt="Logo" /></h3>
+        <div id="slogan_wrap">
+	    <div id="version">
+		<p id="slogan">version: {VERSION}</p>
+	    </div>
+	    <div id="langbox">
+	    <ul>
+      <!-- BEGIN: langitem -->
+                  <li><a href="?page=lang&newlang={LANG_CODE}"><img src="template/icons/langs/{LANG_ICON}.png" title="{LANG_LANG}" class="{LANG_IMG_CLASS}" /></a></li>
+      <!-- END: langitem -->
+	    </ul>
+	    </div>
+	</div>
+        <hr class="noscreen" />
+
+        <p class="noscreen noprint"></p>
+
+        <hr class="noscreen" />
+
+        <div id="search">
+	<!-- BEGIN: logbox -->
+            <form action="?page=login&action=login" method="post">
+            	<div id="l_form">
+                    <span>{L_USERNAME}:</span>
+                    <input type="text" size="30" name="username" id="search-input" />
+                    <span>{L_PASSWORD}:</span>
+                    <input type="password" size="30" name="passwd" id="search-input" />
+		                <input type="submit" value="{L_LOGIN}" id="search-submit" />
+            	</div>
+            </form>
+	<!-- END: logbox -->
+	<!-- BEGIN: loggedbox -->
+            <form action="?page=login&action=logout" method="post">
+            	<div id="l_form">
+				        <input type="submit" value="{L_LOGOUT} ({USER_NAME})" id="search-submit" />
+            	</div>
+            </form>
+	<!-- END: loggedbox -->
+        </div> <!-- /search -->
+
+    </div> <!-- /main -->
+</div> <!-- /header -->
+
+<hr class="noscreen" />
+
+<!-- Horizontal navigation -->
+<div id="nav" class="box">
+    <div class="main">
+
+        <h3 class="noscreen">Navigace</h3>
+
+        <ul>
+	    <!-- BEGIN: menu_item -->
+            <li {MENU_ACTIVE} {MENU_LAST}><a href="{MENU_LINK}">{MENU_TITLE}</a></li>
+	    <!-- END: menu_item -->
+        </ul>
+
+    </div>
+</div>
+
+<hr class="noscreen" />
+
+<div id="cols">
+    <div class="main box">
+
+        <div id="content">
+
+            <!-- BEGIN: perex -->
+            <div id="perex" class="box">
+
+                <h1>{PEREX_TITLE}</h1>
+                <p>{PEREX_CONTENT}</p>
+
+            </div>
+	    <!-- END: perex -->
+
+            <div id="content-in" class="box">
+		  <h1>{TITLE}</h1>
+      <!-- BEGIN: s_title -->
+        <h2>{S_TITLE}</h2>
+      <!-- END: s_title -->
+      <!-- BEGIN: s_s_title-->
+        <h3>{S_S_TITLE}</h3>
+      <!-- END: s_s_title -->
+
+	      <!-- BEGIN: table -->
+		  {TABLE_FORM_BEGIN}
+                <table class="table-style01">
+                    <tr>
+			<!-- BEGIN: category -->
+                        <th>{TABLE_CATEGORY}</th>
+			<!-- END: category -->
+                    </tr>
+					<!-- BEGIN: tr -->
+                   <tr onmouseover="this.className='{TRCLASS_HOVER}'" onmouseout="this.className='{TRCLASS}'" {TRSTYLE}>
+						<!-- BEGIN: td -->
+                        <td {TDSTYLE}>{TABLE_TD}</td>
+						<!-- END: td -->
+                    </tr>
+					<!-- END: tr -->
+                </table>
+			{TABLE_FORM_END}
+	      <!-- END: table -->
+
+            </div> <!-- /content-in -->
+
+        </div> <!-- /content -->
+
+        <hr class="noscreen" />
+        <div id="aside">
+		<!-- BEGIN: sidebar -->
+
+            <h3>{SB_TITLE}</h3>
+
+            <ul>
+				<!-- BEGIN: sb_item -->
+                <li><a href="{SBI_LINK}">{SBI_TITLE}</a></li>
+				<!-- END: sb_item -->
+            </ul>
+            <hr class="noscreen" />
+		<!-- END: sidebar -->
+		<!-- BEGIN: helpbox -->
+
+            <h3>{HELPBOX_TITLE}</h3>
+	    <i>{HELPBOX_CONTENT}</i>
+		<!-- END: helpbox -->
+
+	    <!-- BEGIN: transactions -->
+            <div id="transactions">
+	    <h3>{L_TRANSACTION_LOG} [{L_LAST10}]</h3>
+		<table>
+		    <tr>
+			<th>#ID</th>
+			<th>HW</th>
+			<th>VPS</th>
+			<th>{L_ACTION}</th>
+			<th></th>
+		    </tr>
+		<!-- BEGIN: item -->
+		    <tr onmouseover="this.className='bg'" onmouseout="this.className='{T_CLASS}'" class="{T_CLASS}">
+			<td><a href="?page=transactions&id={T_ID}">{T_ID}</a></td>
+			<td>{T_SERVER}</td>
+			<td>{T_VPS}</td>
+			<td>{T_LABEL}</td>
+			<td>{T_ICO}</td>
+		    </tr>
+		<!-- END: item -->
+		</table>
+	    </div>
+	    <!-- END: transactions -->
+<!-- BEGIN: adminbox -->
+{ADMINBOX_CONTENT}
+<!-- END: adminbox -->
+        </div> <!-- /aside -->
+
+    </div> <!-- /main -->
+</div> <!-- /cols -->
+
+<hr class="noscreen" />
+
+<!-- Footer -->
+<div id="footer">
+    <div class="main">
+
+        <p class="f-right"><a href="#">About me</a> {VERSION} (<a href="#">info</a>)</p>
+
+        <p>&copy;&nbsp;2008-2010 <a href="#">PowerAllNetworks</a></p>
+
+    </div> <!-- /main -->
+</div> <!-- /footer -->
+
+</body>
+</html>
+<!-- END: main -->
