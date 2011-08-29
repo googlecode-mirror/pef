@@ -1,8 +1,8 @@
-#summary One-sentence summary of this page.
+#summary 对image进行resize
 
 = Introduction =
 
-Add your content here.
+对图片进行缩放
 
 
 = Details =
