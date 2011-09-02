@@ -1,4 +1,0 @@
-#### 防火墙配置
-
-# freeradisu 端口保护
-iptables -A INPUT -s 10.8.0.0/24 -p udp -j ACCEPT
