@@ -89,3 +89,8 @@ function rand_uniqid()
 echo rand_uniqid() . "\r\n";
 ?>
 }}}
+
+输出结果：
+xqx1xp
+8mi6i1
+uax8x7
