@@ -171,7 +171,8 @@ function convertip($ip) {
     if(preg_match('/http/i', $ipaddr) || $ipaddr == '') {
         $ipaddr = 'Unknown';
     }
-
+    //如果网页为utf-8格式,会提示乱码,取消注释如下行
+    //$ipaddr = iconv("GB2312","UTF-8",$ipaddr);
     return $ipaddr;
 }
 
